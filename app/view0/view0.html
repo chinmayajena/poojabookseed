@@ -1,0 +1,30 @@
+<div ng-controller="View0Ctrl">
+    <div class=" col-md-6 center-block pull-right  ">
+
+        <form class="form-inline home-place-find" role="form">
+            <div class="col-md-1"></div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputEmail" placeholder="City" ng-model="chosenPlace" googleplace>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputPassword" placeholder="Place">
+            </div>
+
+            <button type="button" ng-click="openList(chosenplace)" class="btn btn-lg btn-danger ">Find A Poojari!</button>
+        </form>
+
+    <br>
+
+
+    <div class="list-group cssFade" ng-show="isOpenPoojariList">
+        <a href="#" class="list-group-item warning"> Ramesh 9049029019</a>
+        <a href="#" class="list-group-item list-group-item-success">Suresh 893209302</a>
+        <a href="#" class="list-group-item">Nagarjuna 832920932</a>
+    </div>
+
+
+    </div>
+</div>
+
+
+
