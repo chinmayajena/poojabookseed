@@ -10,6 +10,6 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap','duParallax'])
 }])
 
 .controller('View1Ctrl', [function($scope, parallaxHelper) {
-      $scope.background = parallaxHelper.createAnimator(-0.3);
+     // $scope.background = parallaxHelper.createAnimator(-0.3);
 
 }]);
