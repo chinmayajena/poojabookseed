@@ -1,0 +1,85 @@
+<div ng-controller="OrderCtrl">
+
+   <!-- <h1>The pujari is: {{pujariMobile}}
+    </h1>-->
+
+<div class="col-md-3"></div>
+<div class="col-md-6 bgwhite">
+    <br>
+    <!-- create our form -->
+    <form name="userForm" class="form-group">
+
+        <!-- name field -->
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control"
+                   ng-model="main.name"
+                   ng-minlength="5"
+                   ng-maxlength="10"
+                   required>
+
+
+            <!-- mobile field -->
+            <div class="form-group">
+                <label>Mobile</label>
+                <input type="number" name="mob1" class="form-control"
+                       ng-model="main.mob1"
+                       ng-minlength="10"
+                       ng-maxlength="11"
+                       required>
+
+                <!-- ngMessages goes here -->
+            </div>
+
+            <!-- ngMessages goes here -->
+            <div ng-messages="userForm.mob1.$error">
+                <p ng-message="minlength">Your mobile num is too short.</p>
+                <p ng-message="maxlength">Your mobile num is too long.</p>
+                <p ng-message="required">Your mobile num is required.</p>
+            </div>
+        </div>
+
+        <!-- email field -->
+        <div class="form-group">
+            <label>City</label>
+            <input type="text" class="form-control input-lg" id="search-city" ng-model="customerCity"
+                   uib-typeahead="address for address in getCustomerCity($viewValue)"
+                   typeahead-loading="loadingLocations"
+                   typeahead-no-results="noResults" placeholder="Your location (City, State, ZIP)">
+
+            <!-- ngMessages goes here -->
+        </div>
+
+
+        <!-- Address field -->
+        <div class="form-group">
+            <label>Address 1</label>
+            <input type="text" name="add1" class="form-control"
+                   ng-model="main.add1"
+                   ng-minlength="5"
+                   ng-maxlength="20"
+                   required>
+
+            <!-- ngMessages goes here -->
+        </div>
+
+        <!-- Address field -->
+        <div class="form-group">
+            <label>Address 2</label>
+            <input type="text" name="add1" class="form-control"
+                   ng-model="main.add2"
+                   ng-minlength="5"
+                   ng-maxlength="20"
+                   required>
+
+            <!-- ngMessages goes here -->
+        </div>
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+
+    </form>
+</div>
+</div>

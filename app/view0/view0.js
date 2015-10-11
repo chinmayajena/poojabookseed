@@ -9,7 +9,7 @@ angular.module('myApp.view0', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
   });
 }])
 
-.controller('View0Ctrl', function($scope, $http) {
+.controller('View0Ctrl', function($scope, geolocService) {
 
       $scope.isOpenPoojariList = false;
       $scope.openList = function (criteria) {
@@ -17,18 +17,9 @@ angular.module('myApp.view0', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       };
 
 
-        $scope.getLocation = function(val) {
-            return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
-                params: {
-                    address: val,
-                    sensor: false
-                }
-            }).then(function(response){
-                return response.data.results.map(function(item){
-                    return item.formatted_address;
-                });
-            });
-        };
+        $scope.getSearchLocation = function(val) {
+           return geolocService.getLocation(val);
+        }
 
 
 });
