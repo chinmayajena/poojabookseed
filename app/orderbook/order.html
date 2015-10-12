@@ -4,82 +4,113 @@
     </h1>-->
 
 <div class="col-md-3"></div>
-<div class="col-md-6 bgwhite">
+<div class="col-md-6 customer-order div-bounce">
     <br>
     <!-- create our form -->
-    <form name="userForm" class="form-group">
+    <form name="userForm" class="form-horizontal">
 
         <!-- name field -->
         <div class="form-group">
-            <label>Name</label>
-            <input type="text" name="name" class="form-control"
-                   ng-model="main.name"
+            <label for="custName" class="col-xs-2 control-label">Name</label>
+            <div class="col-xs-10">
+            <input type="text" id="custName" name="name" class="form-control"
+                   ng-model="order.name"
                    ng-minlength="5"
-                   ng-maxlength="10"
+                   ng-maxlength="11"
                    required>
-
+            </div>
+            </div>
 
             <!-- mobile field -->
             <div class="form-group">
-                <label>Mobile</label>
-                <input type="number" name="mob1" class="form-control"
-                       ng-model="main.mob1"
-                       ng-minlength="10"
-                       ng-maxlength="11"
-                       required>
+                <label for="mob1" class="col-xs-2 control-label">Mobile<sup style="color:red;">*</sup></label>
 
-                <!-- ngMessages goes here -->
+
+                    <div class="col-xs-10">
+                        <input type="text" id="mob1" name="mob1" class="form-control"
+                               ng-model="order.mobile"
+                               ng-minlength="10"
+                               ng-maxlength="11"
+                               required>
+                    </div>
             </div>
 
             <!-- ngMessages goes here -->
             <div ng-messages="userForm.mob1.$error">
                 <p ng-message="minlength">Your mobile num is too short.</p>
                 <p ng-message="maxlength">Your mobile num is too long.</p>
-                <p ng-message="required">Your mobile num is required.</p>
             </div>
-        </div>
+
 
         <!-- email field -->
         <div class="form-group">
-            <label>City</label>
-            <input type="text" class="form-control input-lg" id="search-city" ng-model="customerCity"
+            <label for="city" class="col-xs-2 control-label">City</label>
+
+            <div class="col-xs-10">
+            <input type="text" class="form-control input-lg" id="city" ng-model="order.customerCity"
                    uib-typeahead="address for address in getCustomerCity($viewValue)"
                    typeahead-loading="loadingLocations"
                    typeahead-no-results="noResults" placeholder="Your location (City, State, ZIP)">
 
-            <!-- ngMessages goes here -->
+            </div>
         </div>
 
 
         <!-- Address field -->
         <div class="form-group">
-            <label>Address 1</label>
-            <input type="text" name="add1" class="form-control"
-                   ng-model="main.add1"
+            <label for="add1" class="col-xs-2 control-label">Address 1</label>
+            <div class="col-xs-10">
+
+            <input type="text" id="add1" name="add1" class="form-control"
+                   ng-model="order.add1"
                    ng-minlength="5"
                    ng-maxlength="20"
                    required>
 
-            <!-- ngMessages goes here -->
+           </div>
         </div>
 
-        <!-- Address field -->
         <div class="form-group">
-            <label>Address 2</label>
-            <input type="text" name="add1" class="form-control"
-                   ng-model="main.add2"
-                   ng-minlength="5"
-                   ng-maxlength="20"
-                   required>
+            <label for="add2" class="col-xs-2 control-label">Address 1</label>
+            <div class="col-xs-10">
 
-            <!-- ngMessages goes here -->
+                <input type="text" id="add2" name="add1" class="form-control"
+                       ng-model="order.add2"
+                       ng-minlength="5"
+                       ng-maxlength="20"
+                       required>
+
+            </div>
+        </div>
+
+
+        <div ng-repeat="pooja in order.pooja" class="form-group">
+
+            <label class="col-xs-6 control-label">{{pooja.name}}</label>
+            <div class="col-xs-1">
+            <input type="checkbox" ng-model="pooja.status" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="otherdesc" class="col-xs-3 control-label">Other Pooja Description</label>
+            <div class="col-xs-9">
+
+             <textarea id="otherdesc" rows="4" cols="50" class="form-control">
+                 </textarea>
+                </div>
         </div>
 
 
         <div class="form-group">
-            <button type="submit" class="btn btn-danger">Submit</button>
+            <div class="col-xs-9 pull-right">
+            <button type="button" class="btn btn-danger">Book</button>
+                </div>
         </div>
 
     </form>
+
+
+
 </div>
 </div>
