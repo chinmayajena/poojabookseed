@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap','duParallax'])
+angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -9,7 +9,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap','duParallax'])
   });
 }])
 
-.controller('View1Ctrl', [function($scope, parallaxHelper) {
+.controller('View1Ctrl', [function($scope) {
      // $scope.background = parallaxHelper.createAnimator(-0.3);
 
 }]);

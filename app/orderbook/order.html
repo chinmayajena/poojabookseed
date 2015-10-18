@@ -3,20 +3,21 @@
    <!-- <h1>The pujari is: {{pujariMobile}}
     </h1>-->
 
-<div class="col-md-3"></div>
+<div class="col-md-3">
+</div>
 <div class="col-md-6 customer-order div-bounce">
     <br>
     <!-- create our form -->
-    <form name="userForm" class="form-horizontal">
+    <div ng-form name="userForm" class="form-horizontal">
 
         <!-- name field -->
         <div class="form-group">
-            <label for="custName" class="col-xs-2 control-label">Name</label>
+            <label for="custName" class="col-xs-2 control-label">Name<sup style="color:red;">*</sup></label>
             <div class="col-xs-10">
             <input type="text" id="custName" name="name" class="form-control"
                    ng-model="order.name"
                    ng-minlength="5"
-                   ng-maxlength="11"
+                   ng-maxlength="30"
                    required>
             </div>
             </div>
@@ -27,7 +28,7 @@
 
 
                     <div class="col-xs-10">
-                        <input type="text" id="mob1" name="mob1" class="form-control"
+                        <input type="number" pattern="[789][0-9]{9}" id="mob1" name="mob1" class="form-control"
                                ng-model="order.mobile"
                                ng-minlength="10"
                                ng-maxlength="11"
@@ -44,10 +45,10 @@
 
         <!-- email field -->
         <div class="form-group">
-            <label for="city" class="col-xs-2 control-label">City</label>
+            <label for="city" class="col-xs-2 control-label">City<sup style="color:red;">*</sup></label>
 
             <div class="col-xs-10">
-            <input type="text" class="form-control input-lg" id="city" ng-model="order.customerCity"
+            <input type="text" class="form-control input-lg" id="city"   autocomplete="off"  ng-model="order.customerCity"
                    uib-typeahead="address for address in getCustomerCity($viewValue)"
                    typeahead-loading="loadingLocations"
                    typeahead-no-results="noResults" placeholder="Your location (City, State, ZIP)">
@@ -58,7 +59,7 @@
 
         <!-- Address field -->
         <div class="form-group">
-            <label for="add1" class="col-xs-2 control-label">Address 1</label>
+            <label for="add1" class="col-xs-2 control-label">Address 1<sup style="color:red;">*</sup></label>
             <div class="col-xs-10">
 
             <input type="text" id="add1" name="add1" class="form-control"
@@ -77,38 +78,44 @@
                 <input type="text" id="add2" name="add1" class="form-control"
                        ng-model="order.add2"
                        ng-minlength="5"
-                       ng-maxlength="20"
-                       required>
+                       ng-maxlength="20">
 
             </div>
         </div>
 
 
-        <div ng-repeat="pooja in order.pooja" class="form-group">
+        <div class="form-group">
+            <label for="add2" class="col-xs-2 control-label">Pooja</label>
 
-            <label class="col-xs-6 control-label">{{pooja.name}}</label>
-            <div class="col-xs-1">
-            <input type="checkbox" ng-model="pooja.status" class="form-control">
+            <div class="col-xs-10">
+                <div ng-dropdown-multiselect=""
+                     options="poojaData"
+                     selected-model="order.poojaModel"
+                     extra-settings="poojaDataSettings">
+                </div>
             </div>
         </div>
+
 
         <div class="form-group">
             <label for="otherdesc" class="col-xs-3 control-label">Other Pooja Description</label>
             <div class="col-xs-9">
 
-             <textarea id="otherdesc" rows="4" cols="50" class="form-control">
+             <textarea id="otherdesc" rows="4" class="form-control" ng-model="order.desc">
                  </textarea>
                 </div>
         </div>
 
 
+
         <div class="form-group">
             <div class="col-xs-12">
-            <button type="button" class="btn btn-danger pull-right">Book</button>
+            <button type="button" ng-disabled="userForm.$pristine || userForm.$invalid"
+                    class="btn btn-success btn-lg pull-right" ng-click="onBookBtnClick()">Book</button>
             </div>
         </div>
 
-    </form>
+    </div>
 
 
 

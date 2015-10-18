@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.order', ['ngRoute', 'ui.bootstrap', 'ngMessages',  'ngAnimate'])
+angular.module('myApp.order', ['ngRoute', 'ui.bootstrap', 'ngMessages',  'ngAnimate', 'angularjs-dropdown-multiselect'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/order/:pujari?', {
@@ -9,8 +9,7 @@ angular.module('myApp.order', ['ngRoute', 'ui.bootstrap', 'ngMessages',  'ngAnim
         });
     }])
 
-    .controller('OrderCtrl', function($scope, $routeParams, geolocService) {
-
+    .controller('OrderCtrl', function($scope, $routeParams, geolocService, $http, $location) {
         $scope.pujariMobile = $routeParams.pujari;
         $scope.getCustomerCity = function(val) {
             return geolocService.getLocation(val);
@@ -18,11 +17,66 @@ angular.module('myApp.order', ['ngRoute', 'ui.bootstrap', 'ngMessages',  'ngAnim
 
         $scope.order = {
 
-            pooja : [{id:2123, name: 'Satya Narayan Vrata', isRequired: false},
-                      {id: 2323, name: 'Maha Laxmi Pooja', isRequired: false},
-                {id: 0, name: 'Other', isRequired: false}]
+
 
         };
+
+    $scope.onBookBtnClick = function() {
+      var path = "#/success";
+
+    /*  {
+        "poojaModel"
+      :
+        [{"id": 2123}, {"id": 2323}], "name"
+      :
+        "chinmaya", "mobile"
+      :
+        8920392039, "customerCity"
+      :
+        "Bengaluru, Karnataka, India", "add1"
+      :
+        "sls square", "desc"
+      :
+        "I want to get all the required itineraries for the pooja. Please get it if possible."
+      }
+      */
+
+
+      $http.post("",$scope.order).success(
+        function(response) {
+
+          $location.path( path );
+        }
+      );
+
+      $location.path( path );
+
+      console.log(JSON.stringify($scope.order));
+    }
+
+    /*{id:2123, name: 'Satya Narayan Vrata', isRequired: false},
+    {id: 2323, name: 'Maha Laxmi Pooja', isRequired: false},
+    {id: 0, name: 'Other', isRequired: false}*/
+
+      $scope.order.poojaModel = [];
+      $scope.poojaData = [];
+      $scope.poojaDataSettings = {
+          displayProp: 'name',
+          enableSearch: true
+      };
+
+
+    function initializePoojaData () {
+      $http.get(" http://demo1254537.mockable.io/getdata")
+        .success(
+        function(response) {
+          $scope.poojaData =  response;
+        });
+
+
+      }
+
+     initializePoojaData();
 
 
     });

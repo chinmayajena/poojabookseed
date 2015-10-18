@@ -4,8 +4,17 @@
 Login styles
 */
 .bgwhite {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#959595+0,0d0d0d+46,010101+50,0a0a0a+53,4e4e4e+76,383838+87,1b1b1b+100;Black+Gloss+Pipe */
+    background: #959595; /* Old browsers */
+    background: -moz-linear-gradient(45deg,  #959595 0%, #0d0d0d 46%, #010101 50%, #0a0a0a 53%, #4e4e4e 76%, #383838 87%, #1b1b1b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#959595), color-stop(46%,#0d0d0d), color-stop(50%,#010101), color-stop(53%,#0a0a0a), color-stop(76%,#4e4e4e), color-stop(87%,#383838), color-stop(100%,#1b1b1b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(45deg,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(45deg,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(45deg,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* IE10+ */
+    background: linear-gradient(45deg,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#1b1b1b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
     border-radius: 10px;
-    background-color: #ffdab3;
     box-shadow: 5px 7px 3px #090909;
 
 }
@@ -107,7 +116,7 @@ Login styles
 /******Login style end*************/
 
 html {
-  background: url(images/bg2.png) no-repeat center center fixed;
+  background: url(images/bghome.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -128,18 +137,71 @@ html {
   opacity: 0;
 }
 
-.screen-center {
-  /* position:fixed;
-   top: 50%;
-   left: 50%;
 
-   margin-top: -9em; /!*set to a negative number 1/2 of your height*!/
-   margin-left: -15em; /!*set to a negative number 1/2 of your width*!/
-   border: 1px solid #ccc;
-   background-color: #f3f3f3;*/
-
+.wrapper {
+    text-align: center;
 
 }
+
+.button {
+    width: 15em;  height: 2em;
+    font-size: 30px;
+    transition-property: background;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+
+.button:hover {
+    background: #ff7b29;
+
+}
+
+.centre-homepage {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    padding: 40px;
+}
+
+
+
+.hometext {
+    font-size: 30px;
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 10px;
+    color:white;
+    padding-bottom: 20px;
+}
+
+
+body {
+    background: #fff;
+    font: 14px/21px 'Open Sans', Arial, sans-serif;
+    color: #444;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*.threedtext {
+    color: #41f7ff;
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: #afe222 1px 1px, #000 2px 2px, #000 3px 3px;
+    position: relative;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}*/
+
 
 
 .home-place-find {
@@ -157,7 +219,6 @@ html {
     margin-right: 20px;
     border-radius: 20px;
     box-shadow: 5px 7px 5px #090909;
-
 
 }
 
@@ -546,3 +607,86 @@ html {
 .navbar-custom .navbar-link:hover {
   color: #1f1515;
 }
+
+
+/*******Pulse Effect*********/
+.pulse2 {
+    -webkit-animation: pulse2 1s linear infinite;
+    -moz-animation: pulse2 1s linear infinite;
+    -ms-animation: pulse2 1s linear infinite;
+    animation: pulse2 1s linear infinite;
+}
+
+@keyframes pulse2 {
+    0% {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+}
+
+@-moz-keyframes pulse2 {
+    0% {
+        -moz-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+        -moz-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    100% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+
+}
+
+@-webkit-keyframes pulse2 {
+    0% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+}
+
+@-ms-keyframes pulse2 {
+    0% {
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    100% {
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+}
+/**********End pulse Effect ***********/

@@ -6,10 +6,8 @@ angular.module('myApp', [
   'myApp.view0',
   'myApp.view1',
   'myApp.view2',
-  'myApp.order'
-
-
-  // 'myApp.version'
+  'myApp.order',
+  'myApp.success'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view0'});
