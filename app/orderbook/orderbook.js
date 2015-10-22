@@ -67,7 +67,7 @@ angular.module('myApp.order', ['ngRoute', 'ui.bootstrap', 'ngMessages',  'ngAnim
 
 
     function initializePoojaData () {
-      $http.get(" http://demo1254537.mockable.io/getdata")
+      $http.get("http://192.168.0.3:8080/BookMyPandit/bookPooja.entry?uname=admin&password=BookAPooja2")
         .success(
         function(response) {
           $scope.poojaData =  response;
